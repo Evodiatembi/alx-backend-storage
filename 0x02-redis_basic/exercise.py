@@ -17,6 +17,11 @@ class Cache:
     
     def store(self, data: Union[str, bytes,  int,  float]) -> str:
         """ Stores data in redis with randomly generated key
+         Args:
+            data (Union[str, bytes, int, float]): The data to be stored.
+
+        Returns:
+            str: The UUID key as a string.
         """
         key = str(uuid.uuid4())
         self._redis.set(key, data)
